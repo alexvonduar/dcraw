@@ -4606,7 +4606,6 @@ void CLASS xtrans_interpolate (int passes)
     fprintf (stderr,_("%d-pass X-Trans interpolation...\n"), passes);
 
   cielab (0,0);
-  border_interpolate(6);
   ndir = 4 << (passes > 1);
   buffer = (char *) malloc (TS*TS*(ndir*11+6));
   merror (buffer, "xtrans_interpolate()");
@@ -4811,6 +4810,7 @@ void CLASS xtrans_interpolate (int passes)
 	}
     }
   free(buffer);
+  border_interpolate(8);
 }
 #undef fcol
 
